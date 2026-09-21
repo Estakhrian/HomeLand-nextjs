@@ -2,9 +2,8 @@
 
 import { useCart } from "@/context/CartContext"
 import { useUser } from "@/context/UserContext"
-import { productDetails } from "@/data/products"
 import { Trash } from "lucide-react"
-import { usePathname, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 import Swal from "sweetalert2"
 
 
@@ -14,7 +13,7 @@ export default function Cart() {
          decreaseQuantity, removeFromCart, totalItems, totalPrice, clearCartItems } = useCart()
     const { user } = useUser()
     const router = useRouter()
-    const { pathname } = usePathname()
+   
 
 
     if (cartItems.length === 0) {

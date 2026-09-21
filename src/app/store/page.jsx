@@ -3,10 +3,10 @@ import ProductCard from "@/Components/ProductCard"
 import { productDetails } from "@/data/products"
 import { useSearchParams } from "next/navigation"
 import { Search } from "lucide-react"
-import { useState } from "react"
+import { Suspense, useState } from "react"
 
 
-export default function Products() {
+export function ProductsPage() {
 
     const searchParams = useSearchParams()
     const discount = searchParams.get("discount")
@@ -48,5 +48,13 @@ export default function Products() {
                 ))}
             </div>
         </div>
+    )
+}
+
+export default function Products () {
+    return (
+        <Suspense fallback={<div>در حال بارگذاری ...</div>}>
+            <ProductsPage />
+        </Suspense>
     )
 }
