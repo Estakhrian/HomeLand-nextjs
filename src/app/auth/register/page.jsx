@@ -3,7 +3,7 @@
 import { useUser } from "@/context/UserContext";
 import { Lock, Mail, User } from "lucide-react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 export default function RegisterPage() {
 
     const router = useRouter()
-    const searchParams = useSearchParams()
 
 
     const nameRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/
