@@ -29,7 +29,7 @@ export default function Cart() {
 
             Swal.fire({
                 title: "  ثبت سفارش",
-                text: "سفارش ما ثبت شد",
+                text: "سفارش شما ثبت شد",
                 icon: "success",
                 confirmButtonText: "باشه",
                 customClass: {
@@ -42,7 +42,7 @@ export default function Cart() {
                 router.push("/")
             })
              clearCartItems()
-             
+
     } else {
         Swal.fire({
             title: "ابتدا باید ثبت نام کنید",
