@@ -49,13 +49,13 @@ export default function Header() {
 
             {/**mobile header */}
             <div dir="rtl" className=" w-full h-full md:hidden flex justify-between items-center">
-                <div onClick={() => setShowMenu(true)} className=" cursor-pointer mr-3 dark:text-gray-400">
+                <div onClick={() => setShowMenu(true)} className=" cursor-pointer mr-3 text-black/70 dark:text-gray-400">
                     <Menu />
                 </div>
-                <div className="">
-                    <h2 className="font-extrabold text-xl text-[#FF8E0B]">HOMELAND</h2>
+                <div>
+                    <h2 className="font-extrabold text-xl text-[#FF8E0B] mr-5">HOMELAND</h2>
                 </div>
-                <div className="flex items-center justify-center gap-3">
+                <div className="flex items-center justify-center gap-1 ">
                     <button
                         className="text-black/70 cursor-pointer hover:scale-110 mr-1 dark:text-gray-400"
                         onClick={toggleTheme}>

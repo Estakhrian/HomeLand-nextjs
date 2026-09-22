@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules"
 import "swiper/swiper.css"
 import "swiper/css/pagination"
+import Link from "next/link";
 
 
 export default function LatestProducts() {
@@ -19,11 +20,11 @@ export default function LatestProducts() {
                 <h2 className="text-xl font-semibold text-black/75 dark:text-gray-400">
                     <span className="text-[#47D155]">جدیدترین</span>  محصولات
                 </h2>
-                <button className="flex items-center justify-center text-[#FF8E0B] border border-[#FF8E0B] px-2 py-1
+                <Link href={"/store"} className="flex items-center justify-center text-[#FF8E0B] border border-[#FF8E0B] px-2 py-1
                  rounded text-xs hover:bg-[#FF8E0B] hover:text-white duration-400 cursor-pointer">
                     مشاهده همه
                     <ChevronLeft size={12} />
-                </button>
+                </Link>
             </div>
 
             <div className="flex justify-items-center">

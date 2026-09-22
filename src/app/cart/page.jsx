@@ -67,7 +67,7 @@ export default function Cart() {
 return (
     <div className="flex flex-col items-center">
         <h2 className="text-lg font-bold my-2 dark:text-gray-400">سبد خرید شما</h2>
-        <div className="w-full flex flex-col md:flex-row justify-center items-start gap-7 md:gap-1 p-2 my-5  bg-inherit">
+        <div className="w-full text-black/70 flex flex-col md:flex-row justify-center items-start gap-7 md:gap-1 p-2 my-5  bg-inherit">
             {/** right section */}
             <div className="w-full md:w-[60%] h-60 md:h-80 overflow-y-auto flex flex-col mx-auto  border border-black/30  rounded-2xl p-4
                 dark:border-gray-700 dark:bg-black">
@@ -127,7 +127,7 @@ return (
                 <button
                     onClick={chechoutHandler}
                     className="text-sm bg-blue-500 p-1.5 border border-black/30 rounded cursor-pointer
-                    dark:bg-blue-700 dark:text-gray-300">پرداخت</button>
+                    dark:bg-blue-700 text-white dark:text-gray-300">پرداخت</button>
             </div>
         </div>
     </div>

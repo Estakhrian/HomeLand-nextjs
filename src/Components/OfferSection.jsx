@@ -4,33 +4,34 @@ import { productDetails } from "@/data/products";
 import { ChevronLeft } from "lucide-react";
 import ProductCard from "./ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Pagination} from "swiper/modules"
+import { Pagination } from "swiper/modules"
 import "swiper/swiper.css"
 import "swiper/css/pagination"
+import Link from "next/link";
 
 
 export default function OfferSection() {
 
     const discountProducts = productDetails.filter(product => product.discount)
 
-    
+
     return (
         <section dir="rtl" className="w-full flex flex-col p-8 rounded-3xl border border-black/10 my-5 bg-white  dark:bg-[#1a1d23]">
             <div className="flex items-center justify-between mb-8">
                 <h2 className="text-xl font-semibold text-black/75 dark:text-gray-400">
                     <span className="text-[#Db3535]">فروش</span> <span className="text-[#Db3535]">ویژه</span> محصولات
                 </h2>
-                <button className="flex items-center justify-center text-[#FF8E0B] border border-[#FF8E0B] px-2 py-1
+                <Link href={"/store?discount=true"} className="flex items-center justify-center text-[#FF8E0B] border border-[#FF8E0B] px-2 py-1
                  rounded text-xs hover:bg-[#FF8E0B] hover:text-white duration-400 cursor-pointer">
                     مشاهده همه
                     <ChevronLeft size={12} />
-                </button>
+                </Link>
             </div>
 
             <div className="flex justify-items-center">
                 <Swiper
-                modules={[Pagination]}
-                pagination={{clickable: true}}
+                    modules={[Pagination]}
+                    pagination={{ clickable: true }}
                     spaceBetween={20}
                     slidesPerView={2}
                     breakpoints={{

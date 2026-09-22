@@ -90,7 +90,7 @@ export default function RegisterPage() {
             <div className="w-[90%] md:w-[50%] h-94 flex flex-col justify-start items-center gap-2 border border-black/10 
             rounded-2xl bg-white shadow-[0px_8px_64px_0px_rgba(41,65,15,0.09)] mt-4
              dark:bg-[#1a1d23] dark:border-gray-700">
-                <h2 className="font-bold mt-3 dark:text-gray-400">لطفا اطلاعات خود را جهت ثبت نام وارد نمایید</h2>
+                <h2 className="font-bold mt-3 dark:text-gray-400 text-black/70">لطفا اطلاعات خود را جهت ثبت نام وارد نمایید</h2>
                 <form dir="rtl" className="flex flex-col justify-center items-start w-full h-full" onSubmit={submitHandler}>
                     <div className=" w-[90%] mx-auto mb-4"  >
                         <div className="relative flex">
@@ -98,7 +98,7 @@ export default function RegisterPage() {
                             <input type="text"
                                 placeholder="نام کاربری خود را وارد نمایید "
                                 className={`w-full bg-gray-100 rounded-2xl text-sm p-2 pr-6
-                                     ${nameRegex.test(formData.name) && "border border-green-400 outline-green-500"}
+                                     ${nameRegex.test(formData.name) && "border border-green-400 outline-green-500 text-black/70"}
                                      dark:bg-gray-600 dark:text-gray-300 dark:placeholder:text-gray-400`}
                                 onChange={nameHandler}
                                 maxLength={10}
@@ -112,7 +112,7 @@ export default function RegisterPage() {
                             <Mail size={16} className="absolute right-1 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400" />
                             <input type="email"
                                 placeholder="ایمیل خود را وارد کنید"
-                                className={`w-full bg-gray-100 rounded-2xl text-sm p-2 pr-6 
+                                className={`w-full bg-gray-100 rounded-2xl text-sm p-2 pr-6 text-black/70 placeholder:text-black/50
                                     ${emailRegex.test(formData.email) && "border border-green-400 outline-green-500"}
                                      dark:bg-gray-600 dark:text-gray-300 dark:placeholder:text-gray-400`}
                                 onChange={emailHandler} />
@@ -121,10 +121,10 @@ export default function RegisterPage() {
                     </div>
                     <div className="w-[90%] mx-auto mb-4">
                         <div className="relative flex">
-                            <Lock size={16} className="absolute right-1 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400" />
+                            <Lock size={16} className="absolute right-1 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400  placeholder:text-black/50" />
                             <input type="password"
                                 placeholder="رمز عبور خود را وارد کنید"
-                                className={`w-full bg-gray-100 rounded-2xl text-sm p-2 pr-6 
+                                className={`w-full bg-gray-100 rounded-2xl text-sm p-2 pr-6 text-black/70  placeholder:text-black/50
                                     ${passwordRegex.test(formData.password) && "border border-green-400 outline-green-500"}
                                      dark:bg-gray-600 dark:text-gray-300 dark:placeholder:text-gray-400`}
                                 onChange={passwordHandler} />
@@ -142,7 +142,7 @@ export default function RegisterPage() {
                 </form>
             </div>
 
-            <div className=" w-[90%] md:w-[40%] text-sm  flex flex-col gap-3 border mt-8 md:mt-5 mb-6 p-3 border-black/10 
+            <div className=" w-[90%] md:w-[40%] text-sm  flex flex-col gap-3 border mt-8 md:mt-5 mb-6 p-3 border-black/10 text-black/70
             rounded-2xl bg-white shadow-[0px_8px_64px_0px_rgba(41,65,15,0.09)] dark:bg-[#1a1d23] dark:text-gray-400 dark:border-gray-700">
                 <h3>نام کاربری باید شامل حروف انگلیسی بزرگ و کوچک و دو عدد باشد</h3>
                 <h3>رمزعبور باید 8 رقم و شامل حروف انگلیسی بزرگ و کوچک و یک عدد باشد</h3>
