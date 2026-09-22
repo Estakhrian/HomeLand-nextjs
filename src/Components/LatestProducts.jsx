@@ -27,7 +27,7 @@ export default function LatestProducts() {
                 </Link>
             </div>
 
-            <div className="flex justify-items-center">
+            <div className="flex justify-center items-center">
                 <Swiper
                     modules={[Pagination]}
                     pagination={{
