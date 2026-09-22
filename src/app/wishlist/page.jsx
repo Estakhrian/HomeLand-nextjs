@@ -1,7 +1,8 @@
 "use client"
 
+import { useCart } from "@/context/CartContext"
 import { useWishlist } from "@/context/WishlistContext"
-import { Trash } from "lucide-react"
+import { Trash, ShoppingCart } from "lucide-react"
 import Link from "next/link"
 
 
@@ -9,7 +10,9 @@ export default function wishlistPage() {
 
     const { wishListItems, removeFromWishlist } = useWishlist()
 
-    
+    const { addToCart, isInCart } = useCart()
+
+
     if (wishListItems.length === 0) {
         return (
             <div className="w-full h-50 flex justify-center mt-10">
@@ -31,12 +34,20 @@ export default function wishlistPage() {
                                 <Link href={`/store/${item.id}`}>
                                     <img src={item.image} alt={item.id} className="w-18 h-18" />
                                 </Link>
-                                <div>
+                                <div className="flex gap-5">
                                     <Link href={`/store/${item.id}`} className="flex flex-col gap-2">
                                         <h2 className="text-sm md:font-medium font-bold dark:text-gray-400">
                                             {item.title}
                                         </h2>
                                     </Link>
+                                    <div className="flex">
+                                        <button
+                                            onClick={() => addToCart(item)}
+                                            className="text-xs text-white flex justify-center gap-1 items-center bg-[#FF8E0B]/80 
+                         p-1 rounded cursor-pointer hover:scale-105 duration-300">
+                            <ShoppingCart size={15}/>افزودن به سبد خرید
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div className="flex justify-between items-center gap-10">

@@ -45,11 +45,11 @@ export default function ProductDetailsPage({ params }) {
                         </div>
 
                         <div className="w-full flex flex-col justify-start items-start">
-                            <p className="text-xs sm:text-sm text-black/70">قیمت اصلی :
+                            <p className="text-xs sm:text-sm text-black/70 dark:text-gray-400">قیمت اصلی :
                                 <span className="text-xs text-black/70 dark:text-gray-400">{product.price.toLocaleString("fa-IR")} تومان</span>
                             </p>
                             <p>
-                                {product.oldPrice && <p className="text-xs sm:text-sm text-black/70">قیمت قبل:
+                                {product.oldPrice && <p className="text-xs sm:text-sm text-black/70 dark:text-gray-500">  قیمت قبل:
                                     <span className="text-xs text-black/70 dark:text-gray-500">{product.oldPrice.toLocaleString("fa-IR")} تومان</span>
                                 </p>
 
