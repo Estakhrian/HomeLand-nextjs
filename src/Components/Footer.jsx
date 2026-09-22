@@ -18,7 +18,7 @@ export default function Footer() {
                         </div>
                     ))}
                 </div>
-                <div className="border text-gray-300 w-[90%]"/>
+                <div className="border text-gray-300 w-[90%] mx-auto"/>
                 {/** bottom footer */}
                 <div className="w-full flex flex-col md:flex-row justify-between items-stretch p-2 mt-14 mb-3">
                     <div className="w-full md:w-77 flex flex-col items-start">

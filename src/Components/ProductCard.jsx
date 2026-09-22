@@ -51,7 +51,7 @@ export default function ProductCard({ product }) {
                     <div className="flex justify-between w-full mb-2">
                         {product.discount && (<del className="text-gray-400 text-xs">{product.oldPrice.toLocaleString("fa-IR")}</del>)}
                         {product.newProduct && (<span className="text-xs" style={{ color: product.tagColor }}>{product.tag}</span>)}
-                        <span className="text-sm dark:text-gray-300">{product.price.toLocaleString("fa-IR")}</span>
+                        <span className="text-sm text-black/70 dark:text-gray-300">{product.price.toLocaleString("fa-IR")}</span>
                     </div>
                     <div className="w-full flex justify-between items-end">
                         <div className="flex">

@@ -34,10 +34,10 @@ export default function LatestProducts() {
                         clickable: true,
                     }}
                     spaceBetween={20}
-                    slidesPerView={2}
+                    slidesPerView={1}
                     breakpoints={{
                         768: {
-                            slidesPerView: 3
+                            slidesPerView: 2
                         },
                         992: {
                             slidesPerView: 4

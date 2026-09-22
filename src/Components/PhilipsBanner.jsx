@@ -28,7 +28,7 @@ export default function PhilipsBanner() {
                 </p>
 
                 <Link href={"/store"}>
-                    <button className="absolute text-xs sm:text-sm flex items-center justify-center gap-1 right-40 sm:right-4 md:right-12 lg:right-16
+                    <button className="absolute text-xs sm:text-sm flex items-center justify-center gap-1 right-32 sm:right-4 md:right-12 lg:right-16
                 top-68 sm:top-50 lg:top-68 text-[#FF8E0B] bg-white p-1 md:px-5 md:py-3 rounded-lg font-semibold cursor-pointer">
                         مشاهده و خرید
                         <ChevronLeft size={12} />
