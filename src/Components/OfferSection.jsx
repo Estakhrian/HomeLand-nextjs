@@ -28,20 +28,23 @@ export default function OfferSection() {
                 </Link>
             </div>
 
-            <div className="flex justify-items-center">
+            <div className="w-full">
                 <Swiper
                     modules={[Pagination]}
                     pagination={{ clickable: true }}
                     spaceBetween={20}
                     slidesPerView={1}
                     breakpoints={{
-                        768: {
+                        640:{
                             slidesPerView: 2
+                        },
+                        768: {
+                            slidesPerView: 3
                         },
                         992: {
                             slidesPerView: 4
                         },
-                        1024: {
+                        1280: {
                             slidesPerView: 5
                         }
                     }}

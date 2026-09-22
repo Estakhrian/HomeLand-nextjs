@@ -28,7 +28,7 @@ export default function Footer() {
                         </p>
                     </div>
                     <div className="w-full md:w-30 flex flex-col items-start md:items-center gap-1 p-1">
-                        <h2 className="text-sm font-medium mb-2 border-b border-gray-200 text-black/70 dark:text-gray-300">لینک های مهم</h2>
+                        <h2 className="text-sm font-medium mb-2 border-b border-gray-200  text-[#FF8E0B] dark:text-gray-300">لینک های مهم</h2>
                         <ul className="flex flex-col items-center gap-1 text-sm text-gray-500">
                             <li>
                                 <Link href={"/"}>صفحه اصلی</Link>
@@ -45,7 +45,7 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="w-full md:w-30 flex flex-col items-start md:items-center gap-1 p-1">
-                        <h2 className="text-sm font-medium mb-2 border-b border-gray-200  text-black/70 dark:text-gray-300">دسته بندی </h2>
+                        <h2 className="text-sm font-medium mb-2 border-b border-gray-200   text-[#FF8E0B] dark:text-gray-300">دسته بندی </h2>
                         <ul className="flex flex-col items-center gap-1 text-sm text-gray-500">
                             <li>
                                 <Link href={"/store?category=washing-machine"}>لباسشویی</Link>
@@ -65,7 +65,7 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="w-full md:w-30 flex flex-col items-start md:items-center gap-1 p-1">
-                        <h2 className="text-sm font-medium mb-2 border-b border-gray-200 text-black/70  dark:text-gray-300">ارتباط با ما</h2>
+                        <h2 className="text-sm font-medium mb-2 border-b border-gray-200  text-[#FF8E0B]  dark:text-gray-300">ارتباط با ما</h2>
                         <ul className="flex flex-col items-start md:items-center gap-1 text-xs text-gray-500">
                             <li>
                                 <a href="tel:989172314323">+989172314323</a>
@@ -75,7 +75,7 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="w-full md:w-30 flex flex-col items-start md:items-center gap-1 p-1">
-                        <h2 className="text-sm font-medium mb-2 border-b border-gray-200 text-black/70  dark:text-gray-300"> نشان های اعتبار ما</h2>
+                        <h2 className="text-sm font-medium mb-2 border-b border-gray-200  text-[#FF8E0B]  dark:text-gray-300"> نشان های اعتبار ما</h2>
                         <div className="flex md:flex-col gap-1">
                             <img src="/images/footerimg/enamad.png"  className="w-14 h-14"/>
                             <img src="/images/footerimg/sabtSamaneh.webp" className="w-14 h-14"/>

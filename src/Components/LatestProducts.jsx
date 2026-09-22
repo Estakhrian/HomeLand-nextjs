@@ -27,7 +27,7 @@ export default function LatestProducts() {
                 </Link>
             </div>
 
-            <div className="flex justify-center items-center">
+            <div  className="w-full">
                 <Swiper
                     modules={[Pagination]}
                     pagination={{
@@ -36,19 +36,19 @@ export default function LatestProducts() {
                     spaceBetween={20}
                     slidesPerView={1}
                     breakpoints={{
-                        768: {
+                        640:{
                             slidesPerView: 2
+                        },
+                        768: {
+                            slidesPerView: 3
                         },
                         992: {
                             slidesPerView: 4
-                        },
-                        1024: {
-                            slidesPerView: 5
                         }
                     }}
                 >
                     {latestProducts.map((product) => (
-                        <SwiperSlide key={product.id} >
+                        <SwiperSlide key={product.id}>
                             <ProductCard product={product} />
                         </SwiperSlide>
                     ))}

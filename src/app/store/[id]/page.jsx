@@ -3,7 +3,8 @@
 import { use } from "react"
 import { useCart } from "@/context/CartContext"
 import { productDetails } from "@/data/products"
-import { Heart, ShoppingBag, ShoppingBasket } from "lucide-react"
+import { CheckIcon, Heart, ShoppingBag, ShoppingBasket } from "lucide-react"
+import { useWishlist } from "@/context/WishlistContext"
 
 export default function ProductDetailsPage({ params }) {
 
@@ -12,6 +13,8 @@ export default function ProductDetailsPage({ params }) {
 
     // const {addToCart} = useCart()
     const { addToCart, isInCart } = useCart()
+    const { toggleWishlist, isInWishlist } = useWishlist()
+    const isFav = isInWishlist(product.id)
 
     if (!product) {
         return (
@@ -46,7 +49,7 @@ export default function ProductDetailsPage({ params }) {
                                 <span className="text-xs text-black/70 dark:text-gray-400">{product.price.toLocaleString("fa-IR")} تومان</span>
                             </p>
                             <p>
-                                {product.oldPrice && <p className="text-xs sm:text-sm text-black/70">قیمت قبل: 
+                                {product.oldPrice && <p className="text-xs sm:text-sm text-black/70">قیمت قبل:
                                     <span className="text-xs text-black/70 dark:text-gray-500">{product.oldPrice.toLocaleString("fa-IR")} تومان</span>
                                 </p>
 
@@ -60,9 +63,18 @@ export default function ProductDetailsPage({ params }) {
                                 className="text-xs text-white flex justify-center gap-1 items-center bg-[#FF8E0B]
                          p-1 rounded cursor-pointer hover:scale-105 duration-300">
                                 <ShoppingBasket size={15} /> افزودن به سبد خرید</button>
-                            <button className="text-xs text-white flex justify-center gap-1 items-center bg-[#ff270b]
+                            <button
+                                onClick={() => toggleWishlist(product)}
+                                className="text-xs text-white flex justify-center gap-1 items-center bg-[#ff270b]
                          p-1 rounded cursor-pointer hover:scale-105 duration-300">
-                                <Heart size={15} /> افزودن به علاقه مندی ها</button>
+                                {isFav ? (<p className="flex gap-1">
+                                    <CheckIcon size={15} /> اضافه شده به علاقه مندی ها
+                                </p>) : (
+                                    (<p className="flex gap-1">
+                                        <Heart size={15} /> افزودن به علاقه مندی ها
+                                    </p>)
+                                )}
+                            </button>
                         </div>
                     </div>
                 </div>

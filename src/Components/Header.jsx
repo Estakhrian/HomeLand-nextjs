@@ -3,8 +3,9 @@
 import { useCart } from "@/context/CartContext"
 import { useTheme } from "@/context/ThemeContext"
 import { useUser } from "@/context/UserContext"
+import { useWishlist } from "@/context/WishlistContext"
 import { category } from "@/data/categoryDetails"
-import { ShoppingBasket, User, House, Receipt, Handshake, Truck, X, MessageCircle, BadgePercent, ChevronDown, Search, Menu, Store, ChevronUp, Moon, Sun } from "lucide-react"
+import { ShoppingBasket, User, House, Receipt, Handshake, Truck, X, MessageCircle, BadgePercent, ChevronDown, Search, Menu, Store, ChevronUp, Moon, Sun, Heart } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
@@ -16,13 +17,12 @@ export default function Header() {
     const { cartItems } = useCart()
     const { user, logoutUser } = useUser()
     const { isDark, toggleTheme } = useTheme()
-    const {pathname} = usePathname()
+    const { pathname } = usePathname()
 
     const [showMenu, setShowMenu] = useState(false)
     const [isCategoryOpen, setIsCategoryOpen] = useState(false)
 
-
-
+    const {wishListItems} = useWishlist()
 
     const handleLogoutClick = () => {
         Swal.fire({
@@ -32,12 +32,12 @@ export default function Header() {
             confirmButtonText: "بله",
             cancelButtonText: "خیر",
             customClass: {
-                    popup: "!w-64 rounded-xl",
-                    title: "!text-lg font-bold",
-                    htmlContainer: "!text-sm",
-                    confirmButton: "!text-sm rounded-lg",
-                    cancelButton:"!text-sm rounded-lg"
-                }
+                popup: "!w-64 rounded-xl",
+                title: "!text-lg font-bold",
+                htmlContainer: "!text-sm",
+                confirmButton: "!text-sm rounded-lg",
+                cancelButton: "!text-sm rounded-lg"
+            }
         }).then(result => {
             if (result.isConfirmed) {
                 logoutUser()
@@ -128,6 +128,15 @@ export default function Header() {
                             <span>فروشگاه</span>
                         </div>
                     </Link>
+                    <Link href={"/wishlist"}>
+                        <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
+                    hover:border-b border-black/30 hover:text-black hover:font-bold duration-100 cursor-pointer 
+                     dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
+                            <Heart size={16} />
+                            <span>علاقه مندی ها</span>
+                            <p>({wishListItems.length})</p>
+                        </div>
+                    </Link>
                     <Link href={"/store?discount=true"}>
                         <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black hover:font-bold duration-100 cursor-pointer 
@@ -168,7 +177,7 @@ export default function Header() {
                         </button>)
                         :
                         (
-                            <Link href={`/auth/register?redirect=${pathname}`}>
+                            <Link href={"/auth/register"}>
                                 <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
@@ -197,6 +206,12 @@ export default function Header() {
 
                     {/**top header - left section */}
                     <div className="flex items-center justify-center gap-3">
+                        <Link href={"/wishlist"}>
+                            <div className="  w-10 h-8 flex items-center justify-center gap-1 bg-gray-100 dark:bg-[#1a1d23d4] dark:border border-gray-700 rounded hover:scale-110 duration-300">
+                                <span className="text-xs text-black/70 dark:text-gray-400 ">{wishListItems ? wishListItems.length : 0}</span>
+                                <Heart size={20} className=" text-black/70 dark:text-gray-400 " />
+                            </div>
+                        </Link>
                         <Link href={"/cart"}>
                             <div className="  w-10 h-8 flex items-center justify-center gap-1 bg-gray-100 dark:bg-[#1a1d23d4] dark:border border-gray-700 rounded hover:scale-110 duration-300">
                                 <span className="text-xs text-black/70 dark:text-gray-400 ">{cartItems ? cartItems.length : 0}</span>

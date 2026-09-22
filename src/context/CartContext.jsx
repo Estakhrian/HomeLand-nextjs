@@ -38,7 +38,11 @@ export function CartProvider ({children}) {
             timer: 3000,
             timerProgressBar: true,
             background: "#FF8E0B",
-            color: "#ffff"
+            color: "#ffff",
+            customClass: {
+                    title: "!text-sm font-bold",
+                    htmlContainer: "!text-sm",
+                }
         })
     }
 

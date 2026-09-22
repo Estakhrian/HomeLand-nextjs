@@ -41,7 +41,7 @@ export function ProductsPage() {
                     placeholder="جستجو محصولات..."
                     type="text" />
             </div>
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1 gap-y-6
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-6
             justify-items-center items-center mx-auto mb-4">
                 {productToShow.map(product => (
                     <ProductCard key={product.id} product={product} />

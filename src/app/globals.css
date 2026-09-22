@@ -49,3 +49,8 @@ body {
 .swiper-pagination{
   bottom: 0px !important;
 }
+
+.swiper-slide {
+  display: flex ;
+  justify-content: center;
+}

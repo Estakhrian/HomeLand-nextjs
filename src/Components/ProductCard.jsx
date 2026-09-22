@@ -1,4 +1,5 @@
 import { useCart } from "@/context/CartContext";
+import { useWishlist } from "@/context/WishlistContext";
 import { CheckIcon, Heart, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
@@ -8,9 +9,13 @@ export default function ProductCard({ product }) {
     const { addToCart, isInCart } = useCart()
     const inCart = isInCart(product.id)
 
+     const {toggleWishlist, isInWishlist} = useWishlist()
+     const isFav = isInWishlist(product.id)
+
+
     
     return (
-        <div className="relative w-46 h-78 flex flex-col rounded-2xl border border-[#E4E4E4] bg-white p-4
+        <div className="relative w-full h-78 flex flex-col rounded-2xl border border-[#E4E4E4] bg-white p-4
         dark:bg-black dark:border-0">
             <div className="flex flex-col items-center justify-between">
                 {/**top of card */}
@@ -38,8 +43,10 @@ export default function ProductCard({ product }) {
                                 <span>W</span>
                             </div>
                         )}
-                        <button>
-                            <Heart size={18} className="dark:text-gray-400" />
+                        <button
+                        onClick={() => toggleWishlist(product)}>
+                            <Heart size={18} 
+                            className={`dark:text-gray-400 cursor-pointer ${isFav && "fill-red-500 text-inherit"}`}/>
                         </button>
                     </div>
                 </div>
@@ -62,7 +69,7 @@ export default function ProductCard({ product }) {
                                 {inCart && <CheckIcon size={18} className="text-green-500"/>}
                         </div>
                         <Link href={`/store/${product.id}`} >
-                            <button className="text-[#F57201] cursor-pointer ">مشاهده</button>
+                            <button className="text-[#F57201] cursor-pointer">مشاهده</button>
                         </Link>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import { UserProvider } from "@/context/UserContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Script from "next/script";
 import Footer from "@/Components/Footer";
+import { WishlistProvider } from "@/context/WishlistContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-    suppressHydrationWarning
+      suppressHydrationWarning
       lang="fa"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
@@ -48,16 +49,18 @@ export default function RootLayout({ children }) {
       <body dir="rtl" className=" min-h-full flex flex-col ">
         <ThemeProvider>
           <UserProvider>
-            <CartProvider>
-              <main className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-8 ">
-                <div className="w-full max-w-7xl">
-                  <Header />
-                  {children}
-                  <Footer/>
-      
-                </div>
-              </main>
-            </CartProvider>
+            <WishlistProvider>
+              <CartProvider>
+                <main className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-8 ">
+                  <div className="w-full max-w-7xl">
+                    <Header />
+                    {children}
+                    <Footer />
+
+                  </div>
+                </main>
+              </CartProvider>
+            </WishlistProvider>
           </UserProvider>
         </ThemeProvider>
       </body>
