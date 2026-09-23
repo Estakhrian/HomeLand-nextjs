@@ -19,7 +19,7 @@ export default function Cart() {
     if (cartItems.length === 0) {
         return (
             <div className="w-full h-50 flex justify-center mt-10">
-                <h2 className="font-bold dark:text-gray-400">سبد خرید شما خالی است </h2>
+                <h2 className="font-bold text-black/70 dark:text-gray-400">سبد خرید شما خالی است </h2>
             </div>
         )
     }
@@ -66,7 +66,7 @@ export default function Cart() {
     }
 return (
     <div className="flex flex-col items-center">
-        <h2 className="text-lg font-bold my-2 dark:text-gray-400">سبد خرید شما</h2>
+        <h2 className="text-lg font-bold my-2 text-black/70 dark:text-gray-400">سبد خرید شما</h2>
         <div className="w-full text-black/70 flex flex-col md:flex-row justify-center items-start gap-7 md:gap-1 p-2 my-5  bg-inherit">
             {/** right section */}
             <div className="w-full md:w-[60%] h-60 md:h-80 overflow-y-auto flex flex-col mx-auto  border border-black/30  rounded-2xl p-4

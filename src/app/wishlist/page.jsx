@@ -38,7 +38,7 @@ export default function wishlistPage() {
                                 <Link href={`/store/${item.id}`}>
                                     <img src={item.image} alt={item.id} className="w-20 h-20" />
                                 </Link>
-                                <div className="flex flex-col justify-center items-center gap-1 sm:gap-2 md:gap-3">
+                                <div className="flex flex-col justify-center items-start gap-1 sm:gap-2 md:gap-3">
                                     <Link href={`/store/${item.id}`} className="flex flex-col gap-2">
                                         <h2 className="text-[12px] sm:text-xs md:font-medium font-bold dark:text-gray-400">
                                             {item.title}
@@ -54,8 +54,8 @@ export default function wishlistPage() {
                                 </div>
                             </div>
                             <div className="flex justify-between items-center">
-                                <h2 className="text-[10px] sm:text-sm dark:text-gray-400">قیمت:
-                                    <span className="text-[10px] sm:text-xs"> {(item.price).toLocaleString("fa-IR")} </span>
+                                <h2 className="text-[12px] sm:text-sm dark:text-gray-400">قیمت:
+                                    <span className="text-[12px] sm:text-xs"> {(item.price).toLocaleString("fa-IR")} </span>
                                 </h2>
 
                             </div>
