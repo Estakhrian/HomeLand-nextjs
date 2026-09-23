@@ -98,7 +98,7 @@ export default function RegisterPage() {
                             <input type="text"
                                 placeholder="نام کاربری خود را وارد نمایید "
                                 className={`w-full bg-gray-100 rounded-2xl text-sm p-2 pr-6
-                                     ${nameRegex.test(formData.name) && "border border-green-400 outline-green-500 text-black/70"}
+                                     ${nameRegex.test(formData.name) && "border border-green-400 outline-green-500 placeholder:text-black/50 text-black/70"}
                                      dark:bg-gray-600 dark:text-gray-300 dark:placeholder:text-gray-400`}
                                 onChange={nameHandler}
                                 maxLength={10}

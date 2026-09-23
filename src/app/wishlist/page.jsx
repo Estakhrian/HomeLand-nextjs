@@ -16,7 +16,7 @@ export default function wishlistPage() {
     if (wishListItems.length === 0) {
         return (
             <div className="w-full h-50 flex justify-center mt-10">
-                <h2 className="font-bold dark:text-gray-400"> لیست شما خالی است </h2>
+                <h2 className="font-bold text-black/70 dark:text-gray-400"> لیست شما خالی است </h2>
             </div>
         )
     }
