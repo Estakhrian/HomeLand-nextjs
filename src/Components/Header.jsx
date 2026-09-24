@@ -31,6 +31,13 @@ export default function Header() {
         }
     }, [showMenu])
 
+    useEffect(() => {
+        document.body.style.overflow = isCategoryOpen ? "hidden" : "auto"
+        return () => {
+            document.body.style.overflow = "auto"
+        }
+    }, [isCategoryOpen])
+
     const handleLogoutClick = () => {
         Swal.fire({
             title: "خروج از حساب کاربری",
@@ -49,9 +56,10 @@ export default function Header() {
             if (result.isConfirmed) {
                 logoutUser()
             }
+            setShowMenu(false)
+            setIsCategoryOpen(false)
         })
-        setShowMenu(false)
-        setIsCategoryOpen(false)
+
     }
     return (
         <header className="w-full h-14 md:h-26 rounded-3xl bg-[#fcfcfc] dark:bg-[#1a1d23] dark:border
@@ -84,11 +92,11 @@ export default function Header() {
             {/** hamburger menu */}
             {showMenu && (
                 <div
-                className="fixed inset-0 bg-black/50 z-40"
-                onClick={()=> {
-                    setShowMenu(false)
-                    setIsCategoryOpen(false)
-                }}></div>
+                    className="fixed inset-0 bg-black/50 z-40"
+                    onClick={() => {
+                        setShowMenu(false)
+                        setIsCategoryOpen(false)
+                    }}></div>
             )}
             <div style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
                 className={`fixed top-0 right-0 w-48 h-screen bg-white z-50 transition-transform duration-1000 ease-out
@@ -147,7 +155,7 @@ export default function Header() {
                     </Link>
                     <Link
                         href={"/store"}
-                       onClick={() => {
+                        onClick={() => {
                             setShowMenu(false)
                             setIsCategoryOpen(false)
                         }}>
@@ -173,7 +181,7 @@ export default function Header() {
                         </div>
                     </Link>
                     <Link
-                       onClick={() => {
+                        onClick={() => {
                             setShowMenu(false)
                             setIsCategoryOpen(false)
                         }}
@@ -185,8 +193,8 @@ export default function Header() {
                             <span>فروش ویژه</span>
                         </div>
                     </Link>
-                    <div 
-                    className="flex justify-start items-center text-xs gap-.5  
+                    <div
+                        className="flex justify-start items-center text-xs gap-.5  
                     text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
@@ -194,8 +202,8 @@ export default function Header() {
                         <span>خرید اقساطی</span>
                     </div>
 
-                    <div 
-                    className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
+                    <div
+                        className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
                         <Truck size={16} />
@@ -220,10 +228,10 @@ export default function Header() {
                         :
                         (
                             <Link
-                               onClick={() => {
-                            setShowMenu(false)
-                            setIsCategoryOpen(false)
-                        }}
+                                onClick={() => {
+                                    setShowMenu(false)
+                                    setIsCategoryOpen(false)
+                                }}
                                 href={"/auth/register"}>
                                 <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black duration-100 cursor-pointer 
@@ -304,21 +312,27 @@ export default function Header() {
                                 {isCategoryOpen ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
                             </div>
                             {isCategoryOpen &&
-                                <div className="absolute w-32 bg-white flex flex-col items-start justify-start gap-3
-                                text-xs text-black px-2 py-1 mt-1 rounded z-50 shadow-[0px_8px_64px_0px_rgba(41,65,15,0.09)]
+                                <>
+                                    <div className="fixed inset-0  z-30"
+                                        onClick={() => setIsCategoryOpen(false)}>
+
+                                    </div>
+                                    <div className="absolute w-32 bg-white flex flex-col items-start justify-start gap-3
+                                text-xs text-black px-2 py-1 mt-1 rounded z-40 shadow-[0px_8px_64px_0px_rgba(41,65,15,0.09)]
                              dark:border dark:border-gray-600 dark:bg-black">
-                                    {category.map(item => (
-                                        <Link href={`/store?category=${item.category}`}
-                                            key={item.category}
-                                            className="my-.5 hover:border-b border-black/30 hover:scale-105 duration-200
+                                        {category.map(item => (
+                                            <Link href={`/store?category=${item.category}`}
+                                                key={item.category}
+                                                className="my-.5 hover:border-b border-black/30 hover:scale-105 duration-200
                                             dark:text-gray-400 dark:hover:text-gray-300
                                             "
-                                            onClick={() => setIsCategoryOpen(false)}
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>}
+                                                onClick={() => setIsCategoryOpen(false)}
+                                            >
+                                                {item.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </>}
                         </div>
                         <Link href={"/"}>
                             <div className=" flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
