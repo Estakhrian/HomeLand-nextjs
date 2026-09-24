@@ -51,6 +51,7 @@ export default function Header() {
             }
         })
         setShowMenu(false)
+        setIsCategoryOpen(false)
     }
     return (
         <header className="w-full h-14 md:h-26 rounded-3xl bg-[#fcfcfc] dark:bg-[#1a1d23] dark:border
@@ -84,7 +85,10 @@ export default function Header() {
             {showMenu && (
                 <div
                 className="fixed inset-0 bg-black/50 z-40"
-                onClick={()=> setShowMenu(false)}></div>
+                onClick={()=> {
+                    setShowMenu(false)
+                    setIsCategoryOpen(false)
+                }}></div>
             )}
             <div style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
                 className={`fixed top-0 right-0 w-48 h-screen bg-white z-50 transition-transform duration-1000 ease-out
@@ -130,7 +134,10 @@ export default function Header() {
 
                     <Link
                         href={"/"}
-                        onClick={() => setShowMenu(false)}>
+                        onClick={() => {
+                            setShowMenu(false)
+                            setIsCategoryOpen(false)
+                        }}>
                         <div className=" flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black hover:font-bold duration-100 cursor-pointer
                     dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
@@ -140,7 +147,10 @@ export default function Header() {
                     </Link>
                     <Link
                         href={"/store"}
-                        onClick={() => setShowMenu(false)}>
+                       onClick={() => {
+                            setShowMenu(false)
+                            setIsCategoryOpen(false)
+                        }}>
                         <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black hover:font-bold duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
@@ -150,7 +160,10 @@ export default function Header() {
                     </Link>
                     <Link
                         href={"/wishlist"}
-                        onClick={() => setShowMenu(false)}>
+                        onClick={() => {
+                            setShowMenu(false)
+                            setIsCategoryOpen(false)
+                        }}>
                         <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black hover:font-bold duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
@@ -160,7 +173,10 @@ export default function Header() {
                         </div>
                     </Link>
                     <Link
-                        onClick={() => setShowMenu(false)}
+                       onClick={() => {
+                            setShowMenu(false)
+                            setIsCategoryOpen(false)
+                        }}
                         href={"/store?discount=true"}>
                         <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black hover:font-bold duration-100 cursor-pointer 
@@ -169,7 +185,12 @@ export default function Header() {
                             <span>فروش ویژه</span>
                         </div>
                     </Link>
-                    <div className="flex justify-start items-center text-xs gap-.5  
+                    <div 
+                    onClick={() => {
+                            setShowMenu(false)
+                            setIsCategoryOpen(false)
+                        }}
+                    className="flex justify-start items-center text-xs gap-.5  
                     text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
@@ -177,7 +198,12 @@ export default function Header() {
                         <span>خرید اقساطی</span>
                     </div>
 
-                    <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
+                    <div 
+                    onClick={() => {
+                            setShowMenu(false)
+                            setIsCategoryOpen(false)
+                        }}
+                    className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
                         <Truck size={16} />
@@ -202,7 +228,10 @@ export default function Header() {
                         :
                         (
                             <Link
-                                onClick={() => setShowMenu(false)}
+                               onClick={() => {
+                            setShowMenu(false)
+                            setIsCategoryOpen(false)
+                        }}
                                 href={"/auth/register"}>
                                 <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black duration-100 cursor-pointer 
