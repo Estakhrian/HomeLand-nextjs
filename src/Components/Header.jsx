@@ -186,10 +186,6 @@ export default function Header() {
                         </div>
                     </Link>
                     <div 
-                    onClick={() => {
-                            setShowMenu(false)
-                            setIsCategoryOpen(false)
-                        }}
                     className="flex justify-start items-center text-xs gap-.5  
                     text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black duration-100 cursor-pointer 
@@ -199,10 +195,6 @@ export default function Header() {
                     </div>
 
                     <div 
-                    onClick={() => {
-                            setShowMenu(false)
-                            setIsCategoryOpen(false)
-                        }}
                     className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
