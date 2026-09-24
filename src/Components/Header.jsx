@@ -8,7 +8,7 @@ import { category } from "@/data/categoryDetails"
 import { ShoppingBasket, User, House, Receipt, Handshake, Truck, X, MessageCircle, BadgePercent, ChevronDown, Search, Menu, Store, ChevronUp, Moon, Sun, Heart } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Swal from "sweetalert2"
 
 
@@ -22,7 +22,14 @@ export default function Header() {
     const [showMenu, setShowMenu] = useState(false)
     const [isCategoryOpen, setIsCategoryOpen] = useState(false)
 
-    const {wishListItems} = useWishlist()
+    const { wishListItems } = useWishlist()
+
+    useEffect(() => {
+        document.body.style.overflow = showMenu ? "hidden" : "auto"
+        return () => {
+            document.body.style.overflow = "auto"
+        }
+    }, [showMenu])
 
     const handleLogoutClick = () => {
         Swal.fire({
@@ -43,9 +50,11 @@ export default function Header() {
                 logoutUser()
             }
         })
+        setShowMenu(false)
     }
     return (
-        <header className="w-full h-14 md:h-26 rounded-3xl bg-[#fcfcfc] dark:bg-[#1a1d23] dark:border border-gray-700 mt-3 mb-4 shadow-[0px_8px_64px_0px_rgba(41,65,15,0.09)]">
+        <header className="w-full h-14 md:h-26 rounded-3xl bg-[#fcfcfc] dark:bg-[#1a1d23] dark:border
+         border-gray-700 mt-3 mb-4 shadow-[0px_8px_64px_0px_rgba(41,65,15,0.09)]">
 
             {/**mobile header */}
             <div dir="rtl" className=" w-full h-full md:hidden flex justify-between items-center">
@@ -72,7 +81,11 @@ export default function Header() {
             </div>
 
             {/** hamburger menu */}
-
+            {showMenu && (
+                <div
+                className="fixed inset-0 bg-black/50 z-40"
+                onClick={()=> setShowMenu(false)}></div>
+            )}
             <div style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
                 className={`fixed top-0 right-0 w-48 h-screen bg-white z-50 transition-transform duration-1000 ease-out
                 ${showMenu ? "translate-x-0" : "translate-x-full"} dark:bg-[#1a1d23]`}>
@@ -104,7 +117,10 @@ export default function Header() {
                                     <Link href={`/store?category=${item.category}`}
                                         key={item.category}
                                         className="my-.5 hover:border-b border-black/30 hover:scale-105 duration-200"
-                                        onClick={() => setIsCategoryOpen(false)}
+                                        onClick={() => {
+                                            setIsCategoryOpen(false)
+                                            setShowMenu(false)
+                                        }}
                                     >
                                         {item.name}
                                     </Link>
@@ -112,7 +128,9 @@ export default function Header() {
                             </div>}
                     </div>
 
-                    <Link href={"/"}>
+                    <Link
+                        href={"/"}
+                        onClick={() => setShowMenu(false)}>
                         <div className=" flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black hover:font-bold duration-100 cursor-pointer
                     dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
@@ -120,7 +138,9 @@ export default function Header() {
                             <span>صفحه اصلی</span>
                         </div>
                     </Link>
-                    <Link href={"/store"}>
+                    <Link
+                        href={"/store"}
+                        onClick={() => setShowMenu(false)}>
                         <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black hover:font-bold duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
@@ -128,7 +148,9 @@ export default function Header() {
                             <span>فروشگاه</span>
                         </div>
                     </Link>
-                    <Link href={"/wishlist"}>
+                    <Link
+                        href={"/wishlist"}
+                        onClick={() => setShowMenu(false)}>
                         <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black hover:font-bold duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
@@ -137,7 +159,9 @@ export default function Header() {
                             <p>({wishListItems.length})</p>
                         </div>
                     </Link>
-                    <Link href={"/store?discount=true"}>
+                    <Link
+                        onClick={() => setShowMenu(false)}
+                        href={"/store?discount=true"}>
                         <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black hover:font-bold duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
@@ -177,7 +201,9 @@ export default function Header() {
                         </button>)
                         :
                         (
-                            <Link href={"/auth/register"}>
+                            <Link
+                                onClick={() => setShowMenu(false)}
+                                href={"/auth/register"}>
                                 <div className="flex justify-start items-center text-xs gap-.5 text-gray-700 p-1
                     hover:border-b border-black/30 hover:text-black duration-100 cursor-pointer 
                      dark:text-gray-400 dark:hover:text-gray-300 dark:hover:border-gray-300">
